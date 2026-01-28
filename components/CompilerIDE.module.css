@@ -1,0 +1,210 @@
+.ideContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .ideContainer {
+    grid-template-columns: 400px 1fr; /* Widened editor slightly */
+    align-items: start;
+    height: calc(100vh - 100px); /* Fit to screen mostly */
+  }
+}
+
+/* Editor Panel - VS Code Style */
+.editorPanel {
+  background: #1e1e1e; /* VS Code Dark */
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+.editorHeader {
+  background: #252526;
+  padding: 10px 16px;
+  border-bottom: 1px solid #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: #cccccc;
+}
+
+.editorHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.editorHeaderRight {
+  color: #6f7073;
+  font-weight: 600;
+}
+
+.languageSelect {
+  background: #3c3c3c;
+  color: #e0e0e0;
+  border: 1px solid #454545;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.languageSelect:hover {
+  border-color: #666;
+}
+
+/* Code Area Layout */
+.codeContainer {
+  flex: 1;
+  display: flex;
+  position: relative;
+  background: #1e1e1e;
+  overflow: hidden;
+}
+
+.gutter {
+  width: 40px;
+  background: #1e1e1e;
+  color: #858585; /* VS Code gutter color */
+  padding-top: var(--space-md);
+  text-align: right;
+  padding-right: 8px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6; /* Match textarea line-height */
+  user-select: none;
+  border-right: 1px solid #1e1e1e; /* Subtle or invisible separator */
+}
+
+.textarea {
+  flex: 1;
+  background: transparent;
+  color: #d4d4d4; /* Lightish gray text */
+  border: none;
+  padding: var(--space-md) var(--space-md) var(--space-md) 4px; /* Less left padding to sit near gutter */
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  white-space: pre;
+  overflow: auto;
+  tab-size: 2;
+}
+
+.textarea::selection {
+  background: #264f78;
+}
+
+/* Pipeline Styles (Right Side) */
+.pipelineGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto; /* Stack vertically filling space */
+  gap: var(--space-lg);
+  height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pipelineGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.stageCard {
+  background: #18181b; /* Darker panel */
+  border: 1px solid #27272a;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.stageHeader {
+  padding: 10px 16px;
+  border-bottom: 1px solid #27272a;
+  background: #202022;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stageTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+}
+
+.stageContent {
+  padding: var(--space-md);
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: #0f0f11;
+  /* Scrollbar Hidden but scrollable */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.stageContent::-webkit-scrollbar {
+  display: none;
+}
+
+/* Modules */
+.tokenWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* Slightly tighter gap */
+  align-content: flex-start;
+}
+
+.tokenPill {
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  font-size: 0.8em; /* Slightly smaller for density */
+  color: #a1a1aa;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevent breaking inside token */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tokenPill:hover {
+  border-color: var(--accent-color);
+  background: #2d2d32;
+  color: #fff;
+}
+
+.logItem {
+  padding: 6px 0;
+  border-bottom: 1px solid #27272a;
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.logLevel { font-weight: bold; min-width: 60px; font-size: 0.8em; }
+.logInfo { color: #569cd6; }
+.logResult { color: #4ec9b0; }
+.logError { color: #f44747; }

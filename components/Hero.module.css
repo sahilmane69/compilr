@@ -1,0 +1,53 @@
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: var(--space-2xl) var(--space-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  position: relative;
+  z-index: 10;
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  color: hsl(var(--text-secondary));
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1em 0.4em;
+  margin: 0 0.1em;
+  background: hsl(var(--bg-panel));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--accent-color);
+  vertical-align: middle;
+}
+
+.floatingIcon {
+  position: absolute;
+  opacity: 0.2;
+  filter: blur(1px);
+  animation: float 6s ease-in-out infinite;
+  color: hsl(var(--text-secondary));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
