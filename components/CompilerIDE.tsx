@@ -31,7 +31,7 @@ export function CompilerIDE() {
 
      return (
           <div className={styles.ideContainer}>
-               {/* Code Editor */}
+
                <div className={styles.editorPanel}>
                     <div className={styles.editorHeader}>
                          <div className={styles.editorHeaderLeft}>
@@ -67,16 +67,16 @@ export function CompilerIDE() {
                     </div>
                </div>
 
-               {/* Pipeline Visualization */}
+
                <div className={styles.pipelineGrid}>
 
-                    {/* Stage 1: Lexical Analysis */}
-                    <section className={styles.stageCard} style={{ maxHeight: '35vh', minHeight: '20vh', flexShrink: 0, display: 'flex', flexDirection: 'column' }}>
+
+                    <section className={styles.stageCard} style={{ minHeight: '20vh', flexShrink: 0, display: 'flex', flexDirection: 'column' }}>
                          <div className={styles.stageHeader}>
                               <span className={styles.stageTitle}>1. Lexical Analysis (Tokens)</span>
                               <span style={{ fontSize: '0.75rem', color: '#666' }}>{tokens.length} tokens</span>
                          </div>
-                         <div className={styles.stageContent} style={{ flex: 1, overflowY: 'auto' }}>
+                         <div className={styles.stageContent} style={{ flex: 1 }}>
                               <div className={styles.tokenWrapper}>
                                    {tokens.length === 0 && <span className="text-muted" style={{ padding: 10 }}>No tokens generated</span>}
                                    {tokens.map((t) => (
@@ -89,18 +89,18 @@ export function CompilerIDE() {
                          </div>
                     </section>
 
-                    {/* Stage 2: Syntax Analysis (Graph) */}
+
                     <section className={styles.stageCard} style={{ flex: 1, minHeight: 400 }}>
                          <div className={styles.stageHeader}>
                               <span className={styles.stageTitle}>2. Syntax Analysis (AST Graph)</span>
                          </div>
-                         {/* We remove padding for the graph to fill the area */}
+
                          <div style={{ width: '100%', height: '100%', position: 'relative', background: '#0f0f11' }}>
                               <GraphView data={graph} />
                          </div>
                     </section>
 
-                    {/* Stage 3: Execution */}
+
                     <section className={styles.stageCard} style={{ minHeight: '300px' }}>
                          <div className={styles.stageHeader}>
                               <span className={styles.stageTitle}>3. Execution Log</span>

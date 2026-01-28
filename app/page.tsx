@@ -2,6 +2,7 @@ import { Hero } from "../components/Hero";
 import { CompilerIDE } from "../components/CompilerIDE";
 import { LoadingScreen } from "../components/LoadingScreen";
 import { AuthorBadge } from "../components/AuthorBadge";
+import { Footer } from "../components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       </div>
       <Hero />
       <CompilerIDE />
+      <Footer />
     </main>
   );
 }
